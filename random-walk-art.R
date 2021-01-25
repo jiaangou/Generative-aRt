@@ -135,5 +135,10 @@ for(i in 2:100){
   new_gif <- c(new_gif, combined)
 }
 
-new_gif
-anim_save(new_gif, file='random-walks.gif')
+#save
+#anim_save(new_gif, file='random-walks.gif')
+
+
+
+#
+#magick::image_read('random-walk-static.jpg')
