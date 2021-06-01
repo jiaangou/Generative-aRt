@@ -1,6 +1,10 @@
 ####################################
 #1D CA ------
 ####################################
+library(dplyr)
+library(ggplot2)
+library(PalCreatoR)
+library(here)
 
 #Initiation -------
 N <- 2^10 + 1
@@ -71,9 +75,6 @@ ca_p <- ggplot_matrix(out)+
 
 
 #Coloring -------
-library(PalCreatoR)
-library(here)
-
 van_pal <- here('vancouver.jpg')%>%
   create_pal(image = ., n = 6)
 
