@@ -32,3 +32,8 @@ magick::image_read('random-walk-static.jpg')
 ```{r, fig.width = 4}
 magick::image_read('random-walks.gif')
 ```
+
+
+## 2. 1D-Cellular Automaton
+  - Motivation: I've recently become obsessed with *complexity science* which I'll admit is a loaded term. But the gist of it is the phenomenon in which complex structures and patterns can emerge from (relatively) simple rules. Cellular automatons are the perfect toys to play around with these *rules*
+

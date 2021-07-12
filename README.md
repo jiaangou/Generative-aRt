@@ -13,11 +13,14 @@ working progress, check back in 30 years when I’m much more skilled💩
 
 -   Motivation: to create a hex sticker image for
     [PalCreatoR](https://github.com/GenChangHSU/PalCreatoR)
+
 -   I first used
     [`create_pal`](https://genchanghsu.github.io/PalCreatoR/reference/create_pal.html)
     to generate color for 2 separate images, which I will use to color
     the paths of my random walk
+
 -   The random walk algorithm I wrote is really simple:
+
     1.  Setup starting points by drawing randomly from normal
         distribution 3 times for each of the x, y, z axes
     2.  Step 1 is repeated, depending on how many **“walks”** one wishes
@@ -36,6 +39,7 @@ working progress, check back in 30 years when I’m much more skilled💩
     6.  Each set of walks was color coded by each of the color palette,
         with each walk within each set assigned randomly to one of the
         colors in the palette
+
 -   [script](https://github.com/jiaangou/Generative-aRt/blob/master/random-walk-art.R)
 
 ``` r
@@ -49,3 +53,72 @@ magick::image_read('random-walks.gif')
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-2-1.gif)<!-- -->
+
+## 2. 1D-Cellular Automaton
+
+-   Motivation: I’ve recently become obsessed with *complexity science*
+    which I’ll admit is a loaded term. But the gist of it is the
+    phenomenon in which complex structures and patterns can emerge from
+    (relatively) simple rules. Cellular automatons (CAs) are the perfect
+    toy models that allow you to play with these rules and be able to
+    visualize the result.
+
+-   The model: The 1-D CAs are the simplest type of CAs. Picture a tape
+    of cells, with length equal 10. Going through the tape the first
+    time (t = 1), all the cells contain the number 0 except for the
+    center cell (cell \#5) which contains 1. Now, you make another tape
+    of the same length, but the you assign values to the cells according
+    to the to the values of the cell at the previous tape (tape \# 1).
+    How those values of the previous tape is translated to the new tape,
+    is your “rule”. Iterate this process for how many times you want and
+    visualize what kind of patterns your rule creates!
+
+-   Details of my simple algorithm:
+
+    1.  Initiate a matrix with `nrow` = number of iterations
+        (`iterations`) and `ncol` = length/size of your tape (`N`)
+    2.  Fill in the initials conditions (1 or 0) of the cells in the
+        first tape.
+    3.  Iterate through the rows (outer loop) and iterate through the
+        cells of the row (inner loop)\_
+    4.  RULE: At each cell, check the states of the adjacent cells of
+        the previous tape. If, there is exactly one cell that is
+        activated (=1) in the neighborhood, then active focal cell
+        (focal cell = 1). If not, do nothing (state = 0).
+    5.  Just to spice things up a little, the `error` parameter
+        introduces error to the application of the rule. For example, a
+        cell that is NOT supposed to be activated, gets activated with a
+        given probability equal to the value of `error`.
+    6.  Alternatively, you can also supply a matrix through the `mat`
+        argument (this will ignore `N` and `iterations` arguments) which
+        allows you to construct any hypothetical conditions in which the
+        algorithms is applied. For example, you might want more than
+        just a single point in the middle of the first tape, or maybe
+        you want to know what happens when tapes have activated cells
+        before they are even updated.
+
+-   [script](https://github.com/jiaangou/Generative-aRt/blob/master/oneD_CA.R)
+
+``` r
+#Initiation -------
+N <- 2^8 + 1
+n_iteration <- 100
+
+random_active <- rbinom(N*n_iteration, 1, 0.01) #randomly activate 1% of cells
+random_mat <- matrix(random_active, nrow = n_iteration, ncol = N)
+
+#Implement -------
+result <- one_d_ca(mat = random_mat, error = 0.1)
+
+#Visualize -------
+require(dplyr)
+require(ggplot2)
+result%>%
+  reshape::melt()%>%
+  ggplot(aes(x = X2, y = X1))+
+  geom_tile(aes(fill = value))+
+  scale_fill_gradient(low = 'white', high = 'black')+
+  theme_void()+guides(fill = FALSE)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
