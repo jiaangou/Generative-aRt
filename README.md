@@ -100,25 +100,7 @@ magick::image_read('random-walks.gif')
 -   [script](https://github.com/jiaangou/Generative-aRt/blob/master/oneD_CA.R)
 
 ``` r
-#Initiation -------
-N <- 2^8 + 1
-n_iteration <- 100
-
-random_active <- rbinom(N*n_iteration, 1, 0.01) #randomly activate 1% of cells
-random_mat <- matrix(random_active, nrow = n_iteration, ncol = N)
-
-#Implement -------
-result <- one_d_ca(mat = random_mat, error = 0.1)
-
-#Visualize -------
-require(dplyr)
-require(ggplot2)
-result%>%
-  reshape::melt()%>%
-  ggplot(aes(x = X2, y = X1))+
-  geom_tile(aes(fill = value))+
-  scale_fill_gradient(low = 'white', high = 'black')+
-  theme_void()+guides(fill = FALSE)
+magick::image_read('1D_CA.jpg')
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+<img src="README_files/figure-gfm/unnamed-chunk-3-1.png" width="2160" />
