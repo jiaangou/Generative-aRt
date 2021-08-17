@@ -103,4 +103,4 @@ magick::image_read('random-walks.gif')
 magick::image_read('1D_CA.jpg')
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-3-1.png" width="2160" />
+<img src="1D_CA.jpg" width="2160" />
