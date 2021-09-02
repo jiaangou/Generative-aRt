@@ -80,11 +80,11 @@ magick::image_read('random-walks.gif')
     2.  Fill in the initials conditions (1 or 0) of the cells in the
         first tape.
     3.  Iterate through the rows (outer loop) and iterate through the
-        cells of the row (inner loop)\_
+        cells of the row (inner loop)\
     4.  RULE: At each cell, check the states of the adjacent cells of
         the previous tape. If, there is exactly one cell that is
-        activated (=1) in the neighborhood, then active focal cell
-        (focal cell = 1). If not, do nothing (state = 0).
+        activated (=1) in the neighborhood, then activate the focal cell
+        (focal cell = 1). If not, do nothing (focal cell = 0).
     5.  Just to spice things up a little, the `error` parameter
         introduces error to the application of the rule. For example, a
         cell that is NOT supposed to be activated, gets activated with a
