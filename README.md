@@ -117,6 +117,8 @@ magick::image_read('1D_CA.jpg')
     algorithm was inspired with that in mind. The idea is to illustrate
     continuity and discreteness all in one figure!
 
+-   [script](https://github.com/jiaangou/Generative-aRt/blob/master/circles.R)
+
 ``` r
 magick::image_read('bubbly_universe.png')
 ```
