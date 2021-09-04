@@ -90,4 +90,4 @@ bubbly <- circle_data%>%
   guides(fill = "none")+
   coord_fixed()
 
-ggsave(bubbly, filename = 'bubbly_universe.png', dpi = 360)
+ggsave(bubbly, filename = 'bubbly_universe.jpg', dpi = 360)

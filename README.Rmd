@@ -66,5 +66,5 @@ magick::image_read('1D_CA.jpg')
 -   [script](<https://github.com/jiaangou/Generative-aRt/blob/master/circles.R>)
 
 ```{r, fig.width = 4}
-magick::image_read('bubbly_universe.png')
+magick::image_read('bubbly_universe.jpg')
 ```

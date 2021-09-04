@@ -120,7 +120,7 @@ magick::image_read('1D_CA.jpg')
 -   [script](https://github.com/jiaangou/Generative-aRt/blob/master/circles.R)
 
 ``` r
-magick::image_read('bubbly_universe.png')
+magick::image_read('bubbly_universe.jpg')
 ```
 
-<img src="README_files/figure-gfm/unnamed-chunk-4-1.png" width="3734" />
+<img src="README_files/figure-gfm/unnamed-chunk-4-1.png" width="2520" />
