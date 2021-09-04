@@ -80,11 +80,11 @@ magick::image_read('random-walks.gif')
     2.  Fill in the initials conditions (1 or 0) of the cells in the
         first tape.
     3.  Iterate through the rows (outer loop) and iterate through the
-        cells of the row (inner loop)\
+        cells of the row (inner loop)\_
     4.  RULE: At each cell, check the states of the adjacent cells of
         the previous tape. If, there is exactly one cell that is
-        activated (=1) in the neighborhood, then activate the focal cell
-        (focal cell = 1). If not, do nothing (focal cell = 0).
+        activated (=1) in the neighborhood, then active focal cell
+        (focal cell = 1). If not, do nothing (state = 0).
     5.  Just to spice things up a little, the `error` parameter
         introduces error to the application of the rule. For example, a
         cell that is NOT supposed to be activated, gets activated with a
@@ -103,12 +103,22 @@ magick::image_read('random-walks.gif')
 magick::image_read('1D_CA.jpg')
 ```
 
-<img src="1D_CA.jpg" width="2160" />
-
+<img src="README_files/figure-gfm/unnamed-chunk-3-1.png" width="2160" />
 
 ## 3. Bubbly Universe
 
--   Motivation: I've been pondering a lot about whether continuity exists in the universe. In computers, everything is discrete and continuity is only approximated. For example, curves only appear curved because the discrete steps are so small; the curves are essentially "filled" with little straight lines. But this kind of "filling" phenomenon also happens in the real world, like the discrete water molecules that fill our cups. This "circle filling" algorithm was inspired with that in mind. The idea is to illustrate continuity and discreteness all in one figure!
+-   Motivation: I’ve been pondering a lot about whether continuity
+    exists in the universe. In computers, everything is discrete and
+    continuity is only approximated. For example, curves only appear
+    curved because the discrete steps are so small; the curves are
+    essentially “filled” with little straight lines. But this kind of
+    “filling” phenomenon also happens in the real world, like the
+    discrete water molecules that fill our cups. This “circle filling”
+    algorithm was inspired with that in mind. The idea is to illustrate
+    continuity and discreteness all in one figure!
 
+``` r
+magick::image_read('bubbly_universe.png')
+```
 
-
+<img src="README_files/figure-gfm/unnamed-chunk-4-1.png" width="3734" />
