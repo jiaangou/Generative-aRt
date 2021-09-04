@@ -58,3 +58,7 @@ magick::image_read('random-walks.gif')
 magick::image_read('1D_CA.jpg')
 
 ```
+
+## 3. Bubbly Universe
+
+-   Motivation: I've been pondering a lot about whether continuity exists in the universe. In computers, everything is discrete and continuity is only approximated. For example, curves only appear curved because the discrete steps are so small; the curves are essentially "filled" with little straight lines. But this kind of "filling" phenomenon also happens in the real world, like the discrete water molecules that fill our cups. This "circle filling" algorithm was inspired with that in mind. The idea is to illustrate continuity and discreteness all in one figure!
